@@ -1,6 +1,6 @@
 <div
   style="height: 400px; width: 400px; border: 1px dashed green;"
-  (mousemove)="x=$event.clientX; y=$event.clientY"
+  (mousemove)="handleMouseMove($event)"
 ></div>
 
 <p>X: {{x}}, Y: {{y}}</p>
