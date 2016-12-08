@@ -8,4 +8,8 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'bm works!';
   myTitleForBox = 'Ein toller Text';
+
+  log(event: string) {
+    console.log(event);
+  }
 }

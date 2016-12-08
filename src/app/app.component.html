@@ -2,5 +2,5 @@
   {{title}}
 </h1>
 
-<bm-title-box title="Irgendein string"></bm-title-box>
-<bm-title-box [title]="myTitleForBox"></bm-title-box>
+<bm-title-box title="Irgendein string" (titleClicked)="log($event)"></bm-title-box>
+<bm-title-box [title]="myTitleForBox" (titleClicked)="log($event)"></bm-title-box>
