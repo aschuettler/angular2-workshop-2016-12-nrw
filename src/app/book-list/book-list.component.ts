@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Book } from '../shared';
+
 @Component({
   selector: 'bm-book-list',
   templateUrl: './book-list.component.html',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BookListComponent implements OnInit {
 
-  books = [
+  books: Book[] = [
     {
       "title": "Design Patterns!",
       "subtitle": "Elements of Reusable Object-Oriented Software",
@@ -18,8 +20,7 @@ export class BookListComponent implements OnInit {
       "publisher": {
         "name": "Addison-Wesley",
         "url": "http://www.addison-wesley.de/"
-      },
-      "id": "978-0-20163-361-0"
+      }
     },
     {
       "title": "REST und HTTP",
