@@ -1,6 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
-import { Book }  from '../shared';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/switchMap';
+import 'rxjs/add/operator/distinctUntilChanged';
+import 'rxjs/add/operator/do';
+
+import {
+  Book,
+  BookDataService,
+}  from '../shared';
 
 @Component({
   selector: 'bm-book-detail',
@@ -9,24 +18,22 @@ import { Book }  from '../shared';
 })
 export class BookDetailComponent implements OnInit {
 
-  /* tslint:disable */
-  book: Book = {
-    "title": "Eloquent JavaScript",
-    "subtitle": "A Modern Introduction to Programming",
-    "isbn": "978-1-59327-584-6",
-    "abstract": "JavaScript lies at the heart of almost every modern web application, from social apps to the newest browser-based games. Though simple for beginners to pick up and play with, JavaScript is a flexible, complex language that you can use to build full-scale applications.",
-    "numPages": 472,
-    "author": "Marijn Haverbeke",
-    "publisher": {
-      "name": "No Starch Press",
-      "url": "https://www.nostarch.com/"
-    }
-  };
-  /* tslint:enable */
+  book: Book;
 
-  constructor() { }
+  constructor(
+    private route: ActivatedRoute,
+    private bookData: BookDataService
+  ) { }
 
   ngOnInit() {
+    this.route.params
+      .map(params => params['isbn'])
+      .distinctUntilChanged()
+      .do(v => this.book = undefined)
+      .switchMap(isbn => this.bookData.getBookByIsbn(isbn))
+      .subscribe(
+        book => this.book = book
+      );
   }
 
 }
