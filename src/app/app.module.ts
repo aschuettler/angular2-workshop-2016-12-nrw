@@ -14,6 +14,7 @@ import { routing } from './app.routing';
 import {
   BookDataService
 } from './shared';
+import { BookDetailComponent } from './book-detail/book-detail.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import {
     InfoBoxComponent,
     MouseCursorComponent,
     TitleBoxComponent,
-    BookListComponent
+    BookListComponent,
+    BookDetailComponent
   ],
   imports: [
     BrowserModule,

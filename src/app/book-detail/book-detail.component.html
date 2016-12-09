@@ -1,0 +1,17 @@
+<h3>This is the book {{book.title}}</h3>
+<dl>
+  <dt>Subtitle</dt>
+  <dd>{{ book.subtitle }}</dd>
+  <dt>Author</dt>
+  <dd>{{ book.author }}</dd>
+  <dt>Publisher</dt>
+  <dd>
+    <a [href]="book.publisher.url">{{book.publisher.name}}</a>
+  </dd>
+  <dt>ISBN</dt>
+  <dd>{{ book.isbn }}</dd>
+</dl>
+
+<a routerLink="/books">
+  ⬅️ Back
+</a>

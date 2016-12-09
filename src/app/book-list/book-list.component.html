@@ -2,7 +2,11 @@
 
 <ul>
   <li *ngFor="let book of books">
-    <h4>{{ book.title }} <small>{{ book.subtitle }}</small></h4>
+    <h4>
+      <a [routerLink]="['/books', book.isbn]">
+        {{ book.title }} <small>{{ book.subtitle }}</small>
+      </a>
+    </h4>
     <p>{{ book.abstract }}</p>
     <p>ISBN: {{book.isbn}}</p>
     <p>Publisher: <a [href]="book.publisher.url">{{ book.publisher.name }}</a></p>
