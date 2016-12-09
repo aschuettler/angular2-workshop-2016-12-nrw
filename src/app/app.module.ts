@@ -9,6 +9,10 @@ import { MouseCursorComponent } from './mouse-cursor/mouse-cursor.component';
 import { TitleBoxComponent } from './title-box/title-box.component';
 import { BookListComponent } from './book-list/book-list.component';
 
+import {
+  BookDataService
+} from './shared';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +26,7 @@ import { BookListComponent } from './book-list/book-list.component';
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [BookDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
