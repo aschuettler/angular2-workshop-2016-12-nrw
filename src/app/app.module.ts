@@ -9,6 +9,8 @@ import { MouseCursorComponent } from './mouse-cursor/mouse-cursor.component';
 import { TitleBoxComponent } from './title-box/title-box.component';
 import { BookListComponent } from './book-list/book-list.component';
 
+import { routing } from './app.routing';
+
 import {
   BookDataService
 } from './shared';
@@ -24,7 +26,9 @@ import {
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+
+    routing
   ],
   providers: [BookDataService],
   bootstrap: [AppComponent]
