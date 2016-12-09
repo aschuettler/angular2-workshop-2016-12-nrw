@@ -7,14 +7,9 @@ import { AppComponent } from './app.component';
 import { InfoBoxComponent } from './info-box/info-box.component';
 import { MouseCursorComponent } from './mouse-cursor/mouse-cursor.component';
 import { TitleBoxComponent } from './title-box/title-box.component';
-import { BookListComponent } from './book-list/book-list.component';
 
 import { routing } from './app.routing';
-
-import {
-  BookDataService
-} from './shared';
-import { BookDetailComponent } from './book-detail/book-detail.component';
+import { BookModule } from './book/book.module';
 
 @NgModule({
   declarations: [
@@ -22,17 +17,16 @@ import { BookDetailComponent } from './book-detail/book-detail.component';
     InfoBoxComponent,
     MouseCursorComponent,
     TitleBoxComponent,
-    BookListComponent,
-    BookDetailComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
 
-    routing
+    routing,
+    BookModule,
   ],
-  providers: [BookDataService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -29,8 +29,8 @@ export class BookDetailComponent implements OnInit {
     this.route.params
       .map(params => params['isbn'])
       .distinctUntilChanged()
-      .do(v => this.book = undefined)
-      .switchMap(isbn => this.bookData.getBookByIsbn(isbn))
+      .do(v => this.book = undefined) // reset the loaded book
+      .switchMap(isbn => this.bookData.getBookByIsbn(isbn)) // send the request to the server
       .subscribe(
         book => this.book = book
       );
